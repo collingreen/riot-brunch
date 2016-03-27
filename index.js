@@ -1,5 +1,4 @@
 var compile = require('riot').compile;
-var progeny = require('progeny');
 
 RiotCompiler = function(config) {
   this.config = (config && config.plugins && config.plugins.riot) || {};
@@ -45,9 +44,5 @@ RiotCompiler.prototype.compile = function(data, path, callback) {
   };
   return callback(null, result);
 };
-
-RiotCompiler.prototype.getDependencies = function(sourceContents, file, callback) {
-  progeny({rootPath: this.rootPath})(file, sourceContents, callback);
-}
 
 module.exports = RiotCompiler;
